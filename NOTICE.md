@@ -21,16 +21,11 @@ to add your own rules.
 
 ## What you should be aware of
 
-> [!NOTE]
-> The AI-tool signed-off-by name list in `commit-msg` reflects a short list of common tool
-> names. If a new tool starts adding its own signoff line and it is not on that list yet, it
-> will not be caught until the list is updated.
-
-> [!TIP]
-> The secret-pattern list in `pre-commit` is not exhaustive. It covers well-known,
-> high-confidence token shapes only. See [guides/checks.md](guides/checks.md) for the full
-> list and why this is a defence-in-depth layer, not a substitute for a real secret scanner
-> run in CI.
+Neither list `commit-msg` and `pre-commit` check against is exhaustive. The AI-tool
+signed-off-by names in `commit-msg` cover a short list of common tools and the secret patterns
+in `pre-commit` cover well-known, high-confidence token shapes only. See
+[guides/checks.md](guides/checks.md) for the full lists and why this is a defence-in-depth
+layer, not a substitute for a real secret scanner run in CI.
 
 > [!IMPORTANT]
 > The direct-commit-to-main check warns rather than blocks, deliberately. Not every repo uses
