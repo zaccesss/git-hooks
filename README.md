@@ -1,24 +1,22 @@
 # git-hooks
 
 > A small git hooks framework: secret scanning, a large file and force push guard and a
-> commit message check, with a documented extension point for your own rules.
+> commit subject length check, with a documented extension point for your own rules.
 
 A commit or push should never carry a leaked key, a huge binary blob or a rewritten history on
 main by accident. These hooks catch that before it happens, keep commit messages within a
 sensible shape and leave a clear place to add whatever else matters to you.
 
 Set `core.hooksPath` globally and these run regardless of what makes the commit: a terminal
-`git commit`, an IDE or an AI coding agent. A single, unavoidable policy that lives outside
-any one tool's own settings, not something each tool has to opt into separately.
+`git commit` or an IDE. A single, unavoidable policy that lives outside any one tool's own
+settings, not something each tool has to opt into separately.
 
 ## What's here
 
-- **`commit-msg`** - blocks a subject line over 72 characters. Strips a co-authorship trailer
-  or an AI-tool signed-off-by line, verifying the strip actually worked before letting the
-  commit through.
+- **`commit-msg`** - blocks a subject line over 72 characters.
 - **`pre-commit`** - blocks a commit containing a known secret pattern (cloud provider keys,
-  source control tokens, payment and messaging API keys, AI provider keys, private key
-  headers, database connection strings with an embedded password), a file at or over 50MB not
+  source control tokens, payment and messaging API keys, private key headers,
+  database connection strings with an embedded password), a file at or over 50MB not
   tracked by Git LFS or an `.env`-pattern file. Warns, does not block, on committing directly
   to `main`/`master`.
 - **`pre-push`** - blocks a force-push that would rewrite `main`/`master`'s history. Passes

@@ -28,8 +28,7 @@ A few things worth keeping:
 - Let every check in the file run before exiting, rather than stopping at the first failure,
   so one commit attempt reports every problem at once.
 - If a fix is safe to apply automatically (a pure text substitution with no ambiguity), fix it
-  and re-verify the fix actually worked, following the pattern the existing trailer-stripping
-  check in `commit-msg` uses, rather than only fixing it once and hoping.
+  and re-check afterwards that the fix actually worked, rather than fixing once and hoping.
 - Remember to make the same change in all three platform folders (`mac/`, `linux/`,
   `windows/`) if the check does not depend on OS-specific tooling.
 
