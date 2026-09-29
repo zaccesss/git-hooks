@@ -1,5 +1,9 @@
 # Setup
 
+Nothing here needs changing before you install it. These hooks don't reference a username, a
+path specific to one machine or any personal identity, they read from the commit or push being
+made, not from anything hardcoded.
+
 ## 1. Clone
 
 ```bash
