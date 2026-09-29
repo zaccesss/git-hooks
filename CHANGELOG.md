@@ -13,10 +13,9 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Initial release: `commit-msg`, `pre-commit`, `pre-push`, `post-checkout`, `post-commit` and
   `post-merge`, split into self-contained `mac/`, `linux/` and `windows/` folders
-- `commit-msg`: subject-line length check (blocks over 72 characters), plus stripping of a
-  co-authorship trailer or an AI-tool signed-off-by line, verified after stripping
+- `commit-msg`: subject-line length check, blocks over 72 characters
 - `pre-commit`: known secret patterns across cloud providers, source control, payments and
-  messaging and AI providers, a large-file guard (warn at 10MB, block at 50MB unless tracked
+  messaging providers, a large-file guard (warn at 10MB, block at 50MB unless tracked
   by Git LFS), an `.env`-pattern file guard and a warning, not a block, on committing directly
   to `main`/`master`
 - `pre-push`: blocks a force-push that would rewrite `main`/`master`'s history, ahead of the

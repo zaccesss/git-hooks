@@ -1,18 +1,13 @@
 #!/bin/sh
 # Runs against the commit message file before a commit is written.
 #
-# Two checks, both blocking:
-#   1. Subject line over 72 characters
-#   2. A co-authorship trailer added by an AI coding tool, stripped rather
-#      than blocked, since it is trivial to remove safely and re-checked
-#      after removal so "fixed" always means verified fixed, not just
-#      attempted
+# One check, blocking: a subject line over 72 characters.
 #
-# Extension point: add your own message-format or content-style rules
-# below, for example a required conventional-commit type prefix or a
-# project-specific banned-word list. Follow the same pattern: run a check,
-# print a clear "Error: ..." line and exit 1 if it fails, or fix and
-# re-verify if it is something safe to auto-correct.
+# Extension point: add your own message-format or content rules below, for
+# example a required conventional-commit type prefix or a project-specific
+# banned-word list. Follow the same pattern: run a check, print a clear
+# "Error: ..." line and exit 1 if it fails, or fix and re-verify if it is
+# something safe to auto-correct.
 
 subject_line=$(head -1 "$1")
 subject_length=$(printf '%s' "$subject_line" | wc -c | tr -d ' ')
@@ -20,38 +15,6 @@ if [ "$subject_length" -gt 72 ]; then
     echo "Error: commit subject line is $subject_length characters, over the 72-character limit."
     echo "Keep the subject short and move detail to the commit body instead."
     exit 1
-fi
-
-if grep -q '^Co-[Aa]uthored-[Bb]y:' "$1"; then
-    sed -i '/^Co-[Aa]uthored-[Bb]y:/d' "$1"
-    if grep -q '^Co-[Aa]uthored-[Bb]y:' "$1"; then
-        echo "Error: a co-authorship trailer is present but the automatic strip did not remove it."
-        exit 1
-    fi
-    echo "Fixed: co-authorship trailer removed."
-fi
-if grep -Eq '^[Ss]igned-off-by:.*((anthropic)|(openai)|(copilot)|(cursor)|(windsurf)|(claude)|(codex)|(chatgpt)|(gpt)|(tabnine)|(replit)|(ghostwriter)|(amazon.*q)|(codeium)|(blackbox))' "$1"; then
-    sed -i \
-    -e '/^[Ss]igned-off-by:.*anthropic/d' \
-    -e '/^[Ss]igned-off-by:.*openai/d' \
-    -e '/^[Ss]igned-off-by:.*copilot/d' \
-    -e '/^[Ss]igned-off-by:.*cursor/d' \
-    -e '/^[Ss]igned-off-by:.*windsurf/d' \
-    -e '/^[Ss]igned-off-by:.*claude/d' \
-    -e '/^[Ss]igned-off-by:.*codex/d' \
-    -e '/^[Ss]igned-off-by:.*chatgpt/d' \
-    -e '/^[Ss]igned-off-by:.*gpt/d' \
-    -e '/^[Ss]igned-off-by:.*tabnine/d' \
-    -e '/^[Ss]igned-off-by:.*replit/d' \
-    -e '/^[Ss]igned-off-by:.*ghostwriter/d' \
-    -e '/^[Ss]igned-off-by:.*amazon.*q/d' \
-    -e '/^[Ss]igned-off-by:.*codeium/d' \
-    -e '/^[Ss]igned-off-by:.*blackbox/d' "$1"
-    if grep -Eq '^[Ss]igned-off-by:.*((anthropic)|(openai)|(copilot)|(cursor)|(windsurf)|(claude)|(codex)|(chatgpt)|(gpt)|(tabnine)|(replit)|(ghostwriter)|(amazon.*q)|(codeium)|(blackbox))' "$1"; then
-        echo "Error: a signed-off-by line naming an AI tool is present but the automatic strip did not remove it."
-        exit 1
-    fi
-    echo "Fixed: signed-off-by line naming an AI tool removed."
 fi
 
 # --- Extension point -------------------------------------------------------

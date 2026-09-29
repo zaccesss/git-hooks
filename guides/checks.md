@@ -10,25 +10,13 @@ Every check across the three hooks, what triggers it and what happens.
 | --- | --- |
 | Subject line over 72 characters | A first line longer than 72 characters |
 
-### Auto-fixed and verified, does not block
-
-| Trailer | What happens |
-| --- | --- |
-| A co-authorship trailer | Removed entirely |
-| A signed-off-by line naming a known AI coding tool, matched by a short list of provider name fragments inside `commit-msg` itself | Removed entirely |
-
-> [!NOTE]
-> Every fix here re-checks after running. If the pattern is somehow still present (a regex
-> quirk, a locale issue, a permissions problem), that blocks the commit instead of silently
-> letting it through half-fixed. "Fixed" always means verified fixed, never just attempted.
-
 ## pre-commit
 
 ### Blocked
 
 | Check | Covers |
 | --- | --- |
-| Secret patterns | AWS access keys, GCP service account JSON, Google API keys and OAuth tokens, Azure identifiers, DigitalOcean tokens, GitHub tokens (classic and fine-grained), GitLab tokens, npm tokens, PyPI tokens, `.npmrc` auth tokens, Stripe live keys, Slack tokens, SendGrid, Twilio and Mailgun keys, Discord bot tokens, common AI-provider API key shapes, private key headers, database connection strings with an embedded password, JWT-shaped tokens, a variable named like a credential holding a long literal value |
+| Secret patterns | AWS access keys, GCP service account JSON, Google API keys and OAuth tokens, Azure identifiers, DigitalOcean tokens, GitHub tokens (classic and fine-grained), GitLab tokens, npm tokens, PyPI tokens, `.npmrc` auth tokens, Stripe live keys, Slack tokens, SendGrid, Twilio and Mailgun keys, Discord bot tokens, private key headers, database connection strings with an embedded password, JWT-shaped tokens, a variable named like a credential holding a long literal value |
 | Large file, no LFS | Warns at 10MB, blocks at 50MB, unless the file matches a `filter=lfs` pattern in `.gitattributes` |
 | `.env`-pattern file | Any `.env` or `.env.*` file, except one ending in `.example`, `.sample` or `.template` |
 

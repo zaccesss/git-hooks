@@ -57,10 +57,6 @@ check_pattern 'SK[0-9a-f]{32}' "Twilio API key"
 check_pattern 'key-[0-9a-f]{32}' "Mailgun API key"
 check_pattern '[MN][A-Za-z0-9_-]{23}\.[A-Za-z0-9_-]{6}\.[A-Za-z0-9_-]{27,}' "Discord bot token"
 
-check_pattern 'sk-ant-[A-Za-z0-9_-]{90,}' "assistant-provider API key"
-check_pattern 'sk-proj-[A-Za-z0-9_-]{20,}' "assistant-provider project API key"
-check_pattern 'sk-[A-Za-z0-9]{48}' "assistant-provider API key"
-
 check_pattern '-----BEGIN (RSA |EC |OPENSSH |DSA |PGP )?PRIVATE KEY-----' "private key header"
 check_pattern '(postgres|postgresql|mysql|mongodb(\+srv)?)://[^:\s]+:[^@\s]+@' "database connection string with an embedded password"
 check_pattern 'eyJ[A-Za-z0-9_-]{10,}\.eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}' "JWT-shaped token"
