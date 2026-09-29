@@ -16,7 +16,7 @@ surface is narrow. In scope:
 ## Out of scope
 
 - The secret-pattern list not catching every possible secret shape that exists, it's a
-  defence-in-depth layer, not a full scanner, see [NOTICE](NOTICE.md)
+  defence-in-depth layer, not a full scanner, see [guides/checks.md](guides/checks.md)
 - The direct-commit-to-main check being a warning rather than a block, that's deliberate
 
 ## Reporting a vulnerability
