@@ -1,7 +1,7 @@
 # Contributing
 
-Thanks for taking an interest. This is a public template, so contributions to the generic
-framework itself are welcome: bug fixes, platform corrections and missing secret patterns.
+Thanks for taking an interest. Contributions are welcome: bug fixes, platform corrections and
+missing secret patterns.
 
 ## What belongs here
 
@@ -14,7 +14,7 @@ framework itself are welcome: bug fixes, platform corrections and missing secret
 ## What does not belong here
 
 - A check that reflects one contributor's personal preference rather than something broadly
-  useful, that belongs in your own fork's extension point instead, see
+  useful, that belongs in the extension point on your own machine instead, see
   [guides/extending.md](guides/extending.md)
 - Making a warning into a hard block or a block into a warning without discussing it first,
   that is a deliberate design choice per check, documented in [guides/checks.md](guides/checks.md)

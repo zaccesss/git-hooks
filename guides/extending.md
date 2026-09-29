@@ -1,9 +1,5 @@
 # Extending
 
-The checks in this repo are deliberately narrow: things almost anyone would want (secret
-scanning, a large file guard, a force-push guard, a commit subject length limit). Anything
-that reflects a personal or project-specific preference belongs in your own copy, not here.
-
 Each hook file has a section near the bottom marked `# --- Extension point`. That is where a
 new check goes.
 
@@ -46,9 +42,9 @@ A few things worth keeping:
 - A project-specific credential shape not already covered by the generic secret patterns in
   `pre-commit`.
 
-## Keeping the upstream generic checks
+## Keeping future updates easy to merge
 
-If you want to pull in future updates to the generic checks in this repo without losing your
-own additions, keep your extension in its own clearly marked block rather than interleaving it
+If you want to pull in future updates to the checks in this repo without losing your own
+additions, keep your extension in its own clearly marked block rather than interleaving it
 with the existing checks. That makes a future `git pull` and re-merge far easier to reason
 about.

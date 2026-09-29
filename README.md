@@ -3,10 +3,9 @@
 > A small git hooks framework: secret scanning, a large file and force push guard and a
 > commit message check, with a documented extension point for your own rules.
 
-This is a public template extracted from a personal setup. The mechanical safety checks are
-kept as they are, useful to anyone. Anything that reflected a personal content-style choice
-has been removed and replaced with a plain extension point instead, so you can copy this repo
-and plug in whatever rules matter to you.
+A commit or push should never carry a leaked key, a huge binary blob or a rewritten history on
+main by accident. These hooks catch that before it happens, keep commit messages within a
+sensible shape and leave a clear place to add whatever else matters to you.
 
 Set `core.hooksPath` globally and these run regardless of what makes the commit: a terminal
 `git commit`, an IDE or an AI coding agent. A single, unavoidable policy that lives outside
@@ -69,13 +68,12 @@ for the full walkthrough.
 > (`sed --version` prints "GNU sed" on Linux and Windows' Git Bash, prints nothing recognisable
 > on macOS's BSD sed) before assuming the platform folder you copied is the right one.
 
-## Making it yours
+## Adding your own checks
 
-> [!IMPORTANT]
-> This is a starting point, not a finished product. The mechanical checks here are generic on
-> purpose. Each hook has a marked extension point where you add whatever reflects your own
-> conventions: a content-style rule, a naming convention, a required commit type prefix or a
-> licence-header check. See [guides/extending.md](guides/extending.md).
+> [!TIP]
+> Each hook has a marked extension point where you add whatever reflects your own conventions:
+> a content-style rule, a naming convention, a required commit type prefix or a licence-header
+> check. See [guides/extending.md](guides/extending.md).
 
 ## Structure
 
