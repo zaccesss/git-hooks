@@ -39,7 +39,9 @@ Every check across the three hooks, what triggers it and what happens.
 
 ### Warned, does not block
 
-- Committing while checked out directly on `main` or `master`
+- Committing while checked out directly on `main` or `master`, deliberately a warning rather
+  than a block since not every repo uses a branch-per-change workflow, a hard block here would
+  be disruptive on one where committing straight to main is the accepted pattern
 
 ## pre-push
 

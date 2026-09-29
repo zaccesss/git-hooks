@@ -54,3 +54,5 @@ missing secret patterns.
 
 Open an issue with which platform, which hook, what you expected versus what happened and the
 actual output.
+
+More about me and my work: [isaacadjei.me](https://isaacadjei.me).
