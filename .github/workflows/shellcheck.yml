@@ -1,0 +1,36 @@
+name: Shell Check
+
+# Lints every hook file across all three platform folders on every push to
+# main and every pull request. shellcheck does not distinguish POSIX sh from
+# bash perfectly, so this runs in sh-compatibility mode to match the hooks'
+# own #!/bin/sh shebang.
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    name: Lint hook scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: '.'
+          additional_files: 'mac/commit-msg mac/pre-commit mac/pre-push mac/post-checkout mac/post-commit mac/post-merge linux/commit-msg linux/pre-commit linux/pre-push linux/post-checkout linux/post-commit linux/post-merge windows/commit-msg windows/pre-commit windows/pre-push windows/post-checkout windows/post-commit windows/post-merge'
+          severity: warning
+        env:
+          SHELLCHECK_OPTS: --shell=sh

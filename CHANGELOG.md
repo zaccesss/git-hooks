@@ -1,0 +1,25 @@
+# Changelog
+
+All notable changes to this project are recorded here.
+
+Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+---
+
+## [Unreleased]
+
+### Added
+
+- Initial release: `commit-msg`, `pre-commit`, `pre-push`, `post-checkout`, `post-commit` and
+  `post-merge`, split into self-contained `mac/`, `linux/` and `windows/` folders
+- `commit-msg`: subject-line length check (blocks over 72 characters), plus stripping of a
+  co-authorship trailer or an AI-tool signed-off-by line, verified after stripping
+- `pre-commit`: known secret patterns across cloud providers, source control, payments and
+  messaging and AI providers, a large-file guard (warn at 10MB, block at 50MB unless tracked
+  by Git LFS), an `.env`-pattern file guard and a warning, not a block, on committing directly
+  to `main`/`master`
+- `pre-push`: blocks a force-push that would rewrite `main`/`master`'s history, ahead of the
+  existing Git LFS passthrough
+- A documented extension point in every hook, plus [guides/extending.md](guides/extending.md),
+  for adding project or personal rules on top of the generic checks here
