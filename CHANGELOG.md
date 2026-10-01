@@ -22,3 +22,7 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   existing Git LFS passthrough
 - A documented extension point in every hook, plus [guides/extending.md](guides/extending.md),
   for adding project or personal rules on top of the generic checks here
+
+### Changed
+
+- Tidied code comments and the contributor guide.

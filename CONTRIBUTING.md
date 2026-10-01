@@ -47,7 +47,6 @@ missing secret patterns.
 > [!IMPORTANT]
 > - **Comments**: explain the why, not the what.
 > - **ASCII only** in code.
-> - **UK English** in prose comments and documentation.
 > - **No secrets**, obviously, given what this repo is for.
 
 ## Reporting bugs

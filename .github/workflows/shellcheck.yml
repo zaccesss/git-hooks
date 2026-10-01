@@ -1,6 +1,6 @@
 name: Shell Check
 
-# Lints every hook file across all three platform folders on every push to
+# lints every hook file across all three platform folders on every push to
 # main and every pull request. shellcheck does not distinguish POSIX sh from
 # bash perfectly, so this runs in sh-compatibility mode to match the hooks'
 # own #!/bin/sh shebang.
