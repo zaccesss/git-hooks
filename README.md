@@ -38,6 +38,11 @@ each carry their own copy rather than one script branching on `$OSTYPE` at runti
 
 ## Setup
 
+> [!WARNING]
+> Git LFS must be installed first (`brew install git-lfs`, `sudo apt install git-lfs` or
+> `winget install GitHub.GitLFS`, then `git lfs install --skip-repo`). Four of the hooks hand over
+> to `git lfs` and fail without it. See [guides/setup.md](guides/setup.md#requirements).
+
 Each platform folder is fully self-contained, one copy step and you're done:
 
 ```bash

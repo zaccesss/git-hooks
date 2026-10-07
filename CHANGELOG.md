@@ -9,6 +9,12 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Git LFS is now listed as a requirement in the README and `guides/setup.md`, with install
+  commands per platform and `git lfs version` in the verify step, since four hooks fail without
+  it.
+
 ### Added
 
 - Initial release: `commit-msg`, `pre-commit`, `pre-push`, `post-checkout`, `post-commit` and
