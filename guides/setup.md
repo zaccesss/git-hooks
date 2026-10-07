@@ -4,6 +4,33 @@ Nothing here needs changing before you install it. These hooks don't reference a
 path specific to one machine or any personal identity, they read from the commit or push being
 made, not from anything hardcoded.
 
+## Requirements
+
+- Git
+- [Git LFS](https://git-lfs.com). `post-checkout`, `post-commit`, `post-merge` and the end of
+  `pre-push` hand over to `git lfs`. Each one exits with an error when `git-lfs` is not on `PATH`,
+  so a missing install breaks every checkout, commit, merge and push, not only in repos that use
+  LFS.
+
+Install Git LFS for your platform, then register its filters once:
+
+```bash
+# macOS
+brew install git-lfs
+# Debian or Ubuntu
+sudo apt install git-lfs
+# Fedora
+sudo dnf install git-lfs
+# Windows: Git for Windows already bundles it, otherwise
+winget install GitHub.GitLFS
+
+git lfs install --skip-repo
+```
+
+> [!NOTE]
+> `--skip-repo` only writes the global LFS filter config. Without it `git lfs install` also tries
+> to write its own hooks into `core.hooksPath`, the folder these hooks live in.
+
 ## 1. Clone
 
 ```bash
@@ -67,6 +94,7 @@ Every repo on the machine now runs these hooks on every commit and push, no per-
 ```bash
 git config --get core.hooksPath
 ls ~/.git-hooks
+git lfs version
 ```
 
 > [!TIP]
