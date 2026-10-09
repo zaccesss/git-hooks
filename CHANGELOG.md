@@ -9,6 +9,10 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Screenshots and short animations of the config in action, dark and light, in the README's In action section.
+
 ### Fixed
 
 - Git LFS is now listed as a requirement in the README and `guides/setup.md`, with install
