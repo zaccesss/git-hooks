@@ -11,6 +11,16 @@ Set `core.hooksPath` globally and these run regardless of what makes the commit:
 `git commit` or an IDE. A single, unavoidable policy that lives outside any one tool's own
 settings, not something each tool has to opt into separately.
 
+## In action
+
+Screenshots in the High Contrast palette, dark and light. Each one links to a short animation of the same scene.
+
+### A blocked commit
+
+| Dark | Light |
+| --- | --- |
+| [![Dark: a commit stopped by the pre-commit hook because the staged file contains an AWS access key ID](docs/demo/git-hooks-dark.webp)](docs/demo/git-hooks-dark.gif) | [![Light: a commit stopped by the pre-commit hook because the staged file contains an AWS access key ID](docs/demo/git-hooks-light.webp)](docs/demo/git-hooks-light.gif) |
+
 ## What's here
 
 - **`commit-msg`** - blocks a subject line over 72 characters.
