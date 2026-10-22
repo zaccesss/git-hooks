@@ -13,13 +13,27 @@ settings, not something each tool has to opt into separately.
 
 ## In action
 
-Screenshots in the High Contrast palette, dark and light. Each one links to a short animation of the same scene.
+Screenshots in Zacess Deep Contrast Dark and Light, recorded in a demo project. Each one links
+to a short animation of the same scene.
 
 ### A blocked commit
 
 | Dark | Light |
 | --- | --- |
-| [![Dark: a commit stopped by the pre-commit hook because the staged file contains an AWS access key ID](docs/demo/git-hooks-dark.webp)](docs/demo/git-hooks-dark.gif) | [![Light: a commit stopped by the pre-commit hook because the staged file contains an AWS access key ID](docs/demo/git-hooks-light.webp)](docs/demo/git-hooks-light.gif) |
+| [![Dark: a commit stopped by the pre-commit hook because the staged file contains AWS's example access key ID](docs/demo/git-hooks-dark.webp)](docs/demo/git-hooks-dark.gif) | [![Light: a commit stopped by the pre-commit hook because the staged file contains AWS's example access key ID](docs/demo/git-hooks-light.webp)](docs/demo/git-hooks-light.gif) |
+
+### Re-recording
+
+Each scene is a [VHS](https://github.com/charmbracelet/vhs) script in [`docs/demo`](docs/demo),
+recorded once per theme in a throwaway demo under `/tmp/demo`, so the shots show the real config
+with nothing personal on screen. The colours come from
+[Zacess Themes](https://github.com/zacesshq/themes).
+
+```sh
+brew install vhs gifsicle webp
+docs/demo/record.sh           # every scene, dark and light
+docs/demo/record.sh git-hooks # one scene, by its file name
+```
 
 ## What's here
 

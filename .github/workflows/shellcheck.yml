@@ -3,7 +3,8 @@ name: Shell Check
 # lints every hook file across all three platform folders on every push to
 # main and every pull request. shellcheck does not distinguish POSIX sh from
 # bash perfectly, so this runs in sh-compatibility mode to match the hooks'
-# own #!/bin/sh shebang.
+# own #!/bin/sh shebang. The demo recording scripts in docs/demo are bash,
+# so they are checked in a step of their own.
 
 on:
   push:
@@ -33,5 +34,9 @@ jobs:
           scandir: '.'
           additional_files: 'mac/commit-msg mac/pre-commit mac/pre-push mac/post-checkout mac/post-commit mac/post-merge linux/commit-msg linux/pre-commit linux/pre-push linux/post-checkout linux/post-commit linux/post-merge windows/commit-msg windows/pre-commit windows/pre-push windows/post-checkout windows/post-commit windows/post-merge'
           severity: warning
+          ignore_paths: docs/demo
         env:
           SHELLCHECK_OPTS: --shell=sh
+
+      - name: Run ShellCheck on the demo scripts
+        run: shellcheck --severity=warning docs/demo/*.sh
