@@ -9,19 +9,12 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.0.1] - 2026-10-22
+
 ### Added
 
 - The screenshots and clips are recorded again in Zacess Deep Contrast Dark and Light, using the real config in a throwaway demo project.
 - Screenshots and short animations of the config in action, dark and light, in the README's In action section.
-
-### Fixed
-
-- Git LFS is now listed as a requirement in the README and `guides/setup.md`, with install
-  commands per platform and `git lfs version` in the verify step, since four hooks fail without
-  it.
-
-### Added
-
 - Initial release: `commit-msg`, `pre-commit`, `pre-push`, `post-checkout`, `post-commit` and
   `post-merge`, split into self-contained `mac/`, `linux/` and `windows/` folders
 - `commit-msg`: subject-line length check, blocks over 72 characters
@@ -37,3 +30,9 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - Tidied code comments and the contributor guide.
+
+### Fixed
+
+- Git LFS is now listed as a requirement in the README and `guides/setup.md`, with install
+  commands per platform and `git lfs version` in the verify step, since four hooks fail without
+  it.
