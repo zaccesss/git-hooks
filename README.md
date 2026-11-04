@@ -11,4 +11,8 @@ This repository's global Git hooks have moved to the `git/git-hooks` folder of t
 > [!NOTE]
 > This repository is archived and read-only.
 
-![The git hooks in the Zacess Hooks Dark theme](docs/demo/git-hooks-dark.webp)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/demo/git-hooks-dark.webp">
+  <source media="(prefers-color-scheme: light)" srcset="docs/demo/git-hooks-light.webp">
+  <img alt="The git hooks in the Zacess Hooks Dark theme (the Zacess Hooks Light theme in light mode)" src="docs/demo/git-hooks-dark.webp">
+</picture>
